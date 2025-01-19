@@ -5,14 +5,18 @@ import { getInstallations, getToken } from "firebase/installations";
 // this is set during install
 let firebaseConfig;
 
-self.addEventListener('install', event => {
+self.addEventListener("install", (event) => {
   // extract firebase config from query string
-  const serializedFirebaseConfig = new URL(location).searchParams.get('firebaseConfig');
-  
+  const serializedFirebaseConfig = new URL(location).searchParams.get(
+    "firebaseConfig"
+  );
+
   if (!serializedFirebaseConfig) {
-    throw new Error('Firebase Config object not found in service worker query string.');
+    throw new Error(
+      "Firebase Config object not found in service worker query string."
+    );
   }
-  
+
   firebaseConfig = JSON.parse(serializedFirebaseConfig);
   console.log("Service worker installed with Firebase config", firebaseConfig);
 });
@@ -30,5 +34,5 @@ async function fetchWithFirebaseHeaders(request) {
 
 // TODO: get user token
 async function getAuthIdToken(auth) {
-  throw new Error('not implemented');
+  throw new Error("not implemented");
 }
