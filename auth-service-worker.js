@@ -48,8 +48,3 @@ async function getAuthIdToken(auth) {
   if (!auth.currentUser) return;
   return await getIdToken(auth.currentUser);
 }
-
-// TODO: get user token
-async function getAuthIdToken(auth) {
-  throw new Error("not implemented");
-}
